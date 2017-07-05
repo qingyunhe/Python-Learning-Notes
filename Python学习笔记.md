@@ -26,7 +26,9 @@ Python使用缩进来表示代码块,而不是使用大括号 { } 缩进的空�
 
 ```
 
-![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/oh_my_god.gif?raw=true
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/oh_my_god.gif?raw=true
+
+
 
 **如果代码缩进的空格数不一致,会导致运行错误:**
 
@@ -55,7 +57,7 @@ Python使用缩进来表示代码块,而不是使用大括号 { } 缩进的空�
 
 是的,在缩进上,Java和OC没有做到的,Python做到了
 
-![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/就服你.png?raw=true
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/就服你.png?raw=true
 
 ####多行语句
 一般一行写一条语句,但如果语句很长,可以使用反斜杠 \ 来表示一条语句分为多行,但是在[]  {} () 中的多行语句,不需要使用反斜杠 \ 
@@ -75,9 +77,104 @@ print("Hello, World!")
 
 ```
 
-####算数运算符
+####Python算数运算符
 
-https://github.com/qingyunhe/Python-Learning-Notes/blob/master/算数运算符.png?raw=true
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/算术运算符.png?raw=true
+
+####Python比较运算符
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/比较运算符.png?raw=true
+
+####Python赋值运算符
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/赋值运算符.png?raw=true
+
+####Python位运算符
+位运算符是把数字看作二进制来进行计算的,例如a = 60,b = 13
+
+```
+a = 0011 1100
+
+b = 0000 1101
+
+a&b = 0000 1100
+
+a|b = 0011 1101
+
+a^b = 0011 0001
+
+~a  = 1100 0011
+
+```
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/位运算符.png?raw=true
+
+####Python逻辑运算符
+例如a = 10, b = 20
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/逻辑运算符.png?raw=true
+
+####Python成员运算符
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/成员运算符.png?raw=true
+
+```
+a = 10
+b = 20
+list = [1, 2, 3, 4, 5 ];
+ 
+if ( a in list ):
+   print ("a在list中")
+else:
+   print ("a不在list中")
+
+```
+
+
+####Python身份运算符
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/身份运算符.png?raw=true
+
+```
+a = 20
+b = 20
+ 
+if ( a is b ):
+   print ("yes")	// 输出结果 yes
+else:
+   print ("no")
+
+```
+
+```
+a = "str1"
+b = "str2"
+ 
+if ( a is b ):
+   print ("yes")	// 输出结果 no
+else:
+   print ("no")
+
+```
+**is 与 == 区别:**
+
+is 用于判断两个变量引用对象是否为同一个
+
+== 用于判断引用变量的值是否相等
+
+**获取获取对象的内存地址**
+
+id([object]) 函数用于获取对象的内存地址
+
+```
+a = 88;
+id(a)			// 输出结果 4316578528
+
+```
+
+
+
+
 
 
 ####数据类型
