@@ -18,9 +18,14 @@ Python第一个字符必须是字母或下划线 _ ,其它字符可以是英文,
 ####行与缩进
 Python使用缩进来表示代码块,而不是使用大括号 { } 
 
-**第一次接触Python的缩进时候觉得这个设计简直是反人类,Java和OC没有做到的,Python做到了**
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/oh_my_god.gif?raw=true
 
-![Mou icon](https://github.com/qingyunhe/HQYModules/blob/master/UICollectionView重排%20.gif)
+**第一次接触Python的缩进时候觉得这个设计简直是反人类**
+
+**Java和OC没有做到的,Python做到了**
+
+****
+
 
 
 
