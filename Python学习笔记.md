@@ -7,33 +7,65 @@ Anaconda 4.4.0
 在终端中键入 jupyter notebook 回车,打开`http://localhost:8888/tree`
 
 ###基础语法
+
 ####标识符
 Python第一个字符必须是字母或下划线 _ ,其它字符可以是英文,数字以及下划线 _ 组成,不能以数字开头;标识符区分大小写.在Python3中,非ASCII标识符也是合法的.
-####python保留字
+
+####Python保留字
 
 ```
 'False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'
 	
 ```
 ####行与缩进
-Python使用缩进来表示代码块,而不是使用大括号 { } 
+Python使用缩进来表示代码块,而不是使用大括号 { } 缩进的空格数是可变的,但是同一个代码块的语句必须包含相同的缩进空格数.缩进相同的一组语句构成一个代码块称为代码组.
+
+```
+	if True:
+		print ("True")
+	else:
+		print ("False")
+
+```
 
 ![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/oh_my_god.gif?raw=true
 
-**第一次接触Python的缩进时候觉得这个设计简直是反人类**
+**如果代码缩进的空格数不一致,会导致运行错误:**
 
-**Java和OC没有做到的,Python做到了**
+```
+	if True:
+		print ("True")
+	else:
+			print ("False")	 			// 不会报错
 
-****
+```
 
+```
+	if True:
+		print ("True")
+	else:
+		print ("True")
+			print ("False")	 			// 会报错
 
+```
 
+报错如下:
 
+`IndentationError: unindent does not match any outer indentation level`
 
+第一次接触Python的缩进时候觉得这个设计简直是反人类
 
+是的,在缩进上,Java和OC没有做到的,Python做到了
 
-###数据类型
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/就服你.png?raw=true
 
+####多行语句
+一般一行写一条语句,但如果语句很长,可以使用反斜杠 \ 来表示一条语句分为多行,但是在[]  {} () 中的多行语句,不需要使用反斜杠 \ 
+
+####Print输出
+print 默认输出是换行的，如果要实现不换行需要在变量末尾加上 end=" ".
+
+####数据类型
 Python在定义变量时候会自动根据所赋的值来判断数据类型,而不需要在定义时候声明变量的数据类型.
 
 1 整型int
@@ -54,15 +86,17 @@ type (a)   // 输出结果是float
 
 3 字符串str
 
-`s1 = 'let's go'`
+字符串是不可变的.
+
+`s1 = 'let's go''`
 
 报错:SyntaxError: invalid syntax,语法错误,修改为如下:
 
-`s1 = 'let\'s go'`
+`s1 = 'let\'s go''`
 
 添加转义字符 `\` 后表示 `\` 后面的字符不具有特殊含义,就是普通的字符串
 
-**注意:**Python中不区分单引号和双引号,但是为了避免出现以上转义的过程,在Python中定义字符串时候一般使用双引号,而不使用单引号.
+**注意:**Python中单引号和双引号使用完全相同,但是为了避免出现以上转义的过程,在Python中定义字符串时候一般使用双引号,而不使用单引号.
 
 字符串的拼接:
 
