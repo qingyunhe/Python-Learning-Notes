@@ -25,14 +25,52 @@ print("Hello, World!")
 `# -*- coding:utf-8 -*-`
 
 ###标识符
-Python第一个字符必须是字母或下划线 _ ,其它字符可以是英文,数字以及下划线 _ 组成,不能以数字开头;标识符区分大小写.在Python3中,非ASCII标识符也是合法的.
+标示符是程序员代码需要自定义的,如变量名,函数名等都属于标识符.
 
-###Python保留字
+Python的标识符必须是字母或下划线 _ ,其它字符可以是英文,数字以及下划线 _ 组成.
+
+Python的标识符不能以数字开头.
+
+Python的标识符区分大小写.
+
+在Python3中,非ASCII标识符也是合法的.
+
+###Python的关键字
+关键字是具有特殊功能的标识符.
 
 ```
-'False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'
+and     as      assert     break     class      continue    def     del
+elif    else    except     exec      finally    for         from    global
+if      in      import     is        lambda     not         or      pass
+print   raise   return     try       while      with        yield
 	
 ```
+
+###Python的输出
+
+1 普通变量输出
+
+print 默认输出是换行的，如果要实现不换行需要在变量末尾加上`end=" "`
+
+2 格式化输出
+
+```
+age = 18
+name = "榴莲芒果"
+print("我的姓名是%s,年龄是%d"%(name,age))
+
+```
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/常用的格式符号.png?raw=true
+
+3 换行输出
+
+要输出的内容中如果有`\n`,那么`\n`后的内容会在下一行显示.
+
+
+
+
+
 ###行与缩进
 Python使用缩进来表示代码块,而不是使用大括号 { } 缩进的空格数是可变的,但是同一个代码块的语句必须包含相同的缩进空格数.缩进相同的一组语句构成一个代码块称为代码组.
 
@@ -78,14 +116,56 @@ Python使用缩进来表示代码块,而不是使用大括号 { } 缩进的空�
 ###多行语句
 一般一行写一条语句,但如果语句很长,可以使用反斜杠 \ 来表示一条语句分为多行,但是在[]  {} () 中的多行语句,不需要使用反斜杠 \ 
 
-###Print输出
-print 默认输出是换行的，如果要实现不换行需要在变量末尾加上`end=" "`
+
 
 ###Python数据类型
 
-![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/Python数据类型.png?raw=true)
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/Python数据类型.png?raw=true
 
+Python在定义变量时候会自动根据所赋的值来判断数据类型,不需要在定义时候声明变量的数据类型.可以使用`type(变量名称)`方法来查看变量的数据类型.
 
+1 整型int
+
+```
+a = 6
+type (a)   // 输出结果是int
+
+```
+
+2 浮点型float
+
+```
+a = 6.8
+type (a)   // 输出结果是float
+
+```
+
+3 字符串str
+
+字符串是不可变的.
+
+`s1 = 'let's go''`
+
+报错:SyntaxError: invalid syntax,语法错误,修改为如下:
+
+`s1 = 'let\'s go''`
+
+添加转义字符 `\` 后表示 `\` 后面的字符不具有特殊含义,就是普通的字符串
+
+**注意:**Python中单引号和双引号使用完全相同,但是为了避免出现以上转义的过程,在Python中定义字符串时候一般使用双引号,而不使用单引号.
+
+字符串的拼接:
+
+```
+s1 = "hello"
+s2 = "Python"
+print (s1+ " " + s2)   
+
+```
+
+4 布尔类型 True 和 False (区分大小写)
+
+5 空值 None (区分大小写)
 
 
 
@@ -183,50 +263,7 @@ id(a)			// 输出结果 4316578528
 ```
 
 ####数据类型
-Python在定义变量时候会自动根据所赋的值来判断数据类型,而不需要在定义时候声明变量的数据类型.
 
-1 整型int
-
-```
-a = 6
-type (a)   // 输出结果是int
-
-```
-
-2 浮点型float
-
-```
-a = 6.8
-type (a)   // 输出结果是float
-
-```
-
-3 字符串str
-
-字符串是不可变的.
-
-`s1 = 'let's go''`
-
-报错:SyntaxError: invalid syntax,语法错误,修改为如下:
-
-`s1 = 'let\'s go''`
-
-添加转义字符 `\` 后表示 `\` 后面的字符不具有特殊含义,就是普通的字符串
-
-**注意:**Python中单引号和双引号使用完全相同,但是为了避免出现以上转义的过程,在Python中定义字符串时候一般使用双引号,而不使用单引号.
-
-字符串的拼接:
-
-```
-s1 = "hello"
-s2 = "Python"
-print (s1+ " " + s2)   
-
-```
-
-4 布尔类型 True 和 False (区分大小写)
-
-5 空值 None (区分大小写)
 
 ---
 
@@ -822,7 +859,7 @@ data			// 输出test02.text中的内容,为list类型
 ```**写文件**
 ```
 with open("/Users/jiangchengchengxuyuan/Documents/test02.text","w") as f:
-    f.write("qingyun")```
+    f.write("qingyun")```
 
 
 
