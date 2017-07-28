@@ -4,9 +4,7 @@
 
 ###学习环境
 
-mac中的Python3安装路径如下:
-
-/usr/local/Cellar/python3/3.6.2
+mac中的Python3安装路径 `/usr/local/Cellar/python3/3.6.2`
 
 ###Python的注释
 Python中的注释有单行注释和多行注释,单行注释以`#`开头,多行注释使用三个单引号`'''`或者三个双引号`"""`将注释括起来,例如:
@@ -66,6 +64,8 @@ print 默认输出是换行的，如果要实现不换行需要在变量末尾�
 age = 18
 name = "榴莲芒果"
 print("我的姓名是%s,年龄是%d"%(name,age))
+// 等价于下面一行代码 
+print('我的姓名是',name,'年龄是',age)
 
 ```
 
@@ -90,10 +90,10 @@ print("1234\n5678")
 Python使用缩进来表示代码块,而不是使用大括号 { } 缩进的空格数是可变的,但是同一个代码块的语句必须包含相同的缩进空格数.缩进相同的一组语句构成一个代码块称为代码组.
 
 ```
-	if True:
-		print ("True")
-	else:
-		print ("False")
+if True:
+	print ("True")
+else:
+	print ("False")
 
 ```
 
@@ -142,9 +142,30 @@ else:
                          
 ```
 
-###Python的变量及变量的数据类型
+###Python中的变量
+
+Python中变量名称必须是大小写英文,数字和下划线 _ 的组合,不能用数字开头.
 
 Python里面没有常量,如果定义了一个不会再修改的变量,该变量命名时候所有字母大写.
+
+变量本身类型不固定的语言称之为动态语言(例如Python),与之相反的是静态语言(例如Java,OC,Swift).
+
+**变量在内存中的储存方式:**
+
+例如`name = '榴莲芒果'`,Python解释器会做两件事情:1 在内存中创建字符串'榴莲芒果';2 在内存中创建名称为`name`的变量，并把它指向'榴莲芒果'
+
+```
+a = 'ABC'
+b = a
+a = 'XYZ'
+print(b)	// 输出结果是 'ABC'
+
+```
+以上代码执行过程是:
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/变量在内存中的储存方式.png?raw=true
+
+###Python中变量的数据类型
 
 为了更充分的利用内存空间以及更有效率的管理内存,变量被设计为不同的类型,如下图所示:
 
