@@ -150,7 +150,172 @@ for x, y in [(1, 'aa'), (6, 'cc'), (9, 'bb')]:
 
 ```
 
+---
+
 ###列表生成式
+
+什么是列表生成式?
+
+列表生成式(List Comprehensions)是Python内置的可以用来创建list的生成式,用于简化for循环的代码.列表生成式可以直接创建一个列表.
+
+```
+L = []
+for x in range(1, 11):
+	L.append(x * x)
+
+```
+
+以上代码可以简化为:
+
+```
+[x * x for x in range(1, 11)]
+
+```
+
+输出结果`[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]`
+
+还可以加上判断条件;
+
+```
+[x * x for x in range(1, 11) if x % 2 == 0]
+
+```
+
+输出结果`[4, 16, 36, 64, 100]`
+
+---
+
+###生成器
+
+**什么是生成器?**
+
+通过列表生成式可以直接创建一个列表,但是受到内存限制,列表容量肯定是有限的.如果创建一个包含100万个元素的列表,但是仅仅只需要访问前面几个元素,那后面绝大多数元素占用的存储空间就浪费了.
+
+如果列表中的元素可以按照某种算法推算出来,在循环的过程中不断推算出后续的元素,这样就不必创建完整的list,从而节省大量的存储空间.在Python中,这种一边循环一边计算的机制称为生成器generator.
+
+1 创建生成器
+
+方法1:
+
+```
+l = [x * x for x in range(10)]
+print(type(l))		// 输出结果<class 'list'>
+#把列表生成式样的[]改为()就创建了一个生成器
+g = (x * x for x in range(10))
+print(type(g))		// 输出结果<class 'generator'>
+
+```
+
+生成器是可迭代对象,可以使用`for in`来对生成器进行迭代.
+
+```
+g = (x * x for x in range(10))
+for value in g:
+    print(value)
+
+```
+
+**理解生成器:**
+
+生成器是可迭代对象,但只能被遍历一次,例如:
+
+```
+g = (x * x for x in range(10))
+for value in g:
+    print(value)
+
+print('-------')
+
+for aa in g:
+    print(aa)		#第二次变量生成器时候,没有输出值
+
+```
+
+输出结果:
+
+```
+0
+1
+4
+-------
+
+```
+
+每个生成器只能被使用一次.当`x = 0`计算x的平方后,并不保留结果和状态到内存中,接着计算`x = 1`时x的平方,然后计算`x = 2`时x的平方,逐一生成.生成器并没有将所有值放入内存中,而是实时地生成这些值.
+
+方法2:
+
+**如果一个自定义函数的函数体中包含了`yield`关键字,那么这个函数就不再是一个普通函数,而是一个generator.**
+
+函数是顺序执行,当遇到return语句或者函数体的最后一行语句就返回.而变成generator的函数,在每次调用next()的时候执行,遇到yield语句返回,再次执行时从上次返回的yield语句处继续执行.
+
+**yield关键词类似与return,不同之处在于yield返回的是一个生成器.**
+
+---
+
+###迭代器
+
+可以直接使用`for in`迭代的数据类型有两类:
+
+1 集合数据类型,如`list,tuple,dict,set,str`等.
+
+2 生成器generator,包括生成器和带yield的生成器函数generator function.
+
+可以使用`isinstance()`判断一个对象是否是可迭代Iterable对象.
+
+```
+from collections import Iterable
+
+isinstance([], Iterable)		#True
+
+```
+
+可迭代对象的概念:可以使用`for in`进行遍历对象称为可迭代对象Iterable.
+
+生成器不但可以使用`for in`迭代,还可以不断调用`next()`函数返回下一个值.返回最后一下值后,如果继续调用`next()`函数,就会抛出`StopIteration`异常.**可以调用`next()`函数,并不断返回下一个值的对象称为迭代器Iterator.**
+
+可迭代对象不一定是迭代器,例如:
+
+```
+from collections import Iterable
+from collections import Iterator
+
+isinstance([], Iterable)		#True
+isinstance([], Iterator)		#False
+
+```
+
+生成器都是Iterator对象,但list、dict、str虽然是Iterable,却不是Iterator.
+
+把list、dict、str等由Iterable变成Iterator可以使用iter()函数,例如:
+
+```
+from collections import Iterable
+from collections import Iterator
+
+isinstance([], Iterable)		#True
+isinstance(iter([]), Iterator)	#True
+
+```
+
+**为什么list、dict、str等数据类型不是Iterator？**
+
+因为Python的Iterator对象表示的是一个数据流,Iterator对象可以被next()函数调用并不断返回下一个数据,直到没有数据时抛出StopIteration异常.可以把这个数据流理解为一个有序序列,但不能提前知道序列的长度,只能不断通过next()函数实现按业务需求计算下一个数据,所以Iterator的计算是惰性的,只有在需要返回下一个数据时它才会计算.Iterator甚至可以表示一个无限大的数据流,例如全体自然数,而使用list是永远不可能存储全体自然数的.
+
+全文结束,持续更新.
+
+---
+
+
+
+
+
+
+
+
+
+
+
 
 
 
