@@ -367,6 +367,12 @@ print(dict2)		//报错TypeError: unhashable type: 'list'
 
 ```
 
+**不可变对象有哪些?**
+
+不可变对象:
+
+str,None,数字,set,不含可变类型元素的tuple(例如如果tuple中如果某个元素是list,那么该tuple就不是不可变对象)
+
 ---
 
 ###比较list,tuple,dict,set
