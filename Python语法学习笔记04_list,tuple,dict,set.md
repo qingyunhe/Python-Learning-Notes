@@ -4,6 +4,8 @@
 
 本文是Python语法学习的第4篇笔记,学习过程中参考了[廖雪峰的Python教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)和[菜鸟教程Python3篇](https://www.runoob.com/python3/python3-tutorial.html),在此一并表示感谢.
 
+欢迎各位朋友与我进行深入浅出的交流 <developerqingyun@gmail.com>
+
 ###list
 
 list是Python内置的一种数据类型,list是一种**可变的有序的**集合,可以添加和删除其中的元素.
@@ -94,7 +96,6 @@ li[1] = "OC"
 li
 
 ```
-
 输出结果:
 
 ```
@@ -106,6 +107,15 @@ l1 = [1, "OC" ,2 , 3 ,['Michael', 'Jack']]
 ```
 l1 = [1, 2, 3,"JAVA" ,['Michael', 'Jack'] ,True]
 l1[4][1]  		// 输出结果 "Jack"
+
+```
+
+10 给list中的元素排序
+
+```
+a = ['c', 'b', 'a']
+a.sort()
+a		// 输出结果 ['a', 'b', 'c']
 
 ```
 
@@ -146,39 +156,6 @@ t = tuple(1,2,"a","d",True)`
 // 报错:tuple() takes at most 1 argument (5 given) 
 
 ```
-
-**tuple中元素的不可变性怎么理解?**
-
-```
-t = ('a', 'b', ['A', 'B'])
-t[2][0] = 'X'
-t[2][1] = 'Y'
-t				// 输出结果 ('a', 'b', ['X', 'Y'])
-
-```
-
-创建元组
-
-```
-t = ('a', 'b', ['A', 'B'])
-
-```
-执行完上述代码后,元组t中的元素如下图所示:
-
-![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/tuple的不可变形_01.png?raw=true
-
-创建元组中的list元素中的元素
-
-```
-t[2][0] = 'X'
-t[2][1] = 'Y'
-
-```
-执行完上述代码后,元组t中的元素如下图所示:
-
-![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/tuple的不可变形_02.png?raw=true
-
-表面上看元组t中元素变了,但其实变的不是元组t中的元素,而是元组t中的list元素中的元素.元组t指向的list并没有改成别的list,或者其他对象.**tuple中的元素不可变本质上是指tuple中的每个元素的指向不变.**也即指向'a',就不能修改为指向'b';指向一个list,就不能修改成指向其它对象,但指向的这个list中的元素是可变的.
 
 ---
 
@@ -282,35 +259,138 @@ print(d)
 
 ###set
 
-set是Python内置的集合数据类型.也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。
+set是Python内置的集合数据类型.set用于存储一组key,但不存储value.由于key不能重复,所以和dict一样在set中也没有重复的key.
+
+1 创建set
+
+使用set()函数创建set对象,参数是一个list对象.
+
+```
+s = set([1,8,3,"qingyun",5])
+print(type(s))		// 输出结果 <class 'set'>
+print(s)		// 输出结果 {1, 3, 5, 8, 'qingyun'}
+
+```
+
+以上输出结果表明:set中可以存储整数,字符串等作为key,set中存储的所有的key是无序的.
+
+2 **因为set中的key是不能重复的,所以经常用于去重.**
+
+```
+s = set([1,8,3,8,6,8,3,5,7])
+print(s)		// 输出结果 {1, 3, 5, 6, 7, 8}
+
+```
+3 通过add(key)方法向set中添加元素,可以重复添加但不会有效果.
+
+4 通过remove(key)方法可以删除set中的元素.
+
+5 set可以理解为数学意义上无序和无重复元素的集合,两个set可以做数学意义上的交集,并集操作.
+
+```
+s1 = set([1,2,3])s2 = set([3,4,5])s1 & s2 		// 输出结果 {3}
+s1 | s2			// 输出结果 {1, 2, 3, 4, 5}```
+6 set是用于存储无重复元素的集合(即使其中有重复的元素,也会自动去重),所以set中不能存储可变对象,因为无法判断可变对象是否与set集合中的其它元素相同.
+
+```
+l1 = ['aa','bb']
+s = set([1,3,5,l1])
+print(type(s))
+print(s)		// 报错 TypeError: unhashable type: 'list'
+
+```
 
 
+---
 
+###可变对象与不可变对象的理解
 
+**tuple中元素的不可变性怎么理解?**
+
+```
+t = ('a', 'b', ['A', 'B'])
+t[2][0] = 'X'
+t[2][1] = 'Y'
+t				// 输出结果 ('a', 'b', ['X', 'Y'])
+
+```
+
+创建元组
+
+```
+t = ('a', 'b', ['A', 'B'])
+
+```
+执行完上述代码后,元组t中的元素如下图所示:
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/tuple的不可变形_01.png?raw=true
+
+创建元组中的list元素中的元素
+
+```
+t[2][0] = 'X'
+t[2][1] = 'Y'
+
+```
+执行完上述代码后,元组t中的元素如下图所示:
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/tuple的不可变形_02.png?raw=true
+
+表面上看元组t中元素变了,但其实变的不是元组t中的元素,而是元组t中的list元素中的元素.元组t指向的list并没有改成别的list,或者其他对象.**tuple中的元素不可变本质上是指tuple中的每个元素的指向不变.**也即指向'a',就不能修改为指向'b';指向一个list,就不能修改成指向其它对象,但指向的这个list中的元素是可变的.
+
+**str中元素的不可变性怎么理解?**
+
+```
+a = 'abc'
+b = a.replace('a', 'A')
+print(b)		// 输出结果 Abc
+print(a)		// 输出结果 abc
+
+```
+
+a是变量,a中存储的是字符串'abc'在内存的内存地址.`a.replace('a', 'A')`会创建一个新的字符串`Abc`.b是一个变量,b中存储的是字符串'Abc'在内存的内存地址.调用不可变对象自身的任意方法,不会改变该对象自身的内容,相反这些方法会创建新的对象并返回.
+
+**什么样的对象才能作为dict的key?**
+
+```
+t1 = (1, 2, 3)
+dict1 = {'aa' : 111 ,'bb' : 22 ,t1 : 33 }
+print(dict1)		// 输出结果{'aa': 111, 'bb': 22, (1, 2, 3): 33}
+
+```
+
+```
+
+t2 = (1, [2, 3])
+dict2 = {'aa' : 111 ,'bb' : 22 ,t2 : 33 }
+print(dict2)		//报错TypeError: unhashable type: 'list'
+
+```
 
 ---
 
 ###比较list,tuple,dict,set
 
-相同点:
+**相同点:**
 
 1 list,tuple,dict,set都是Python内置的集合数据类型.
 
 2 查询tuple中元素与查询list中的元素的函数完全相同.
 
-不同点:
+3 dict和set中都没有重复的key.
+
+4 dict和set中都不能存储可变对象.
+
+**不同点:**
 
 1 list是可变的,可以对list中的元素进行增删改操作.tuple是不可变的,不能对tuple中的元素进行增删改操作.
 
-2 list中的元素使用`[ ]`括起来,tuple中的元素使用`( )`括起来.
+2 list中的元素使用`[ ]`括起来,tuple中的元素使用`( )`括起来,dict使用`{ }`括起来,set使用`( )`括起来.
 
 3 list和tuple是通过索引查询元素的,要通过索引进行查询,所以list和tuple的数据结构都必须设计为有序的.而dict是通过key查询元素的,所以设计dict的数据结构时,没有必要设计为有序的.
 
-4 和tuple,list比较,dict因为通过key进行查找和插入,所以dict的查找和插入速度很快,而且不会随着key的增加而导致速度变慢,但是key需要占用内存.tuple,list查找和插入的时间随着元素的增加而增加,但是没有key所以占用空间小.所以dict实际是用空间来换取时间.
+4 与tuple,list相比,dict是通过key进行查找和插入的,所以dict的查找和插入速度很快,而且不会随着key的增加而导致速度变慢,但是key需要占用内存.tuple,list查找和插入的时间随着元素的增加而增加,但是没有key所以占用空间小.所以dict实际是用空间来换取时间.
 
+本文结束,持续更新.
 
-
-
-
-
-
+---
