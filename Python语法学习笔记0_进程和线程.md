@@ -60,6 +60,15 @@ if __name__=='__main__':
 
 ```
 
+```
+
+Parent process 928.
+Process will start.
+Run child process test (929)...
+Process end.
+
+```
+
 
 
 
