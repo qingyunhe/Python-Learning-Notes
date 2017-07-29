@@ -41,28 +41,33 @@ Unix,Linux操作系统都提供了`fork()`函数供系统调用,`fork()`函数�
 ```
 import os
 
-# 子进程要执行的代码
-def run_proc(name):
-    print('Run child process %s (%s)...' % (name, os.getpid()))
+print('进程 (%s) 开启' % os.getpid())
+# Only works on Unix/Linux/Mac:
+pid = os.fork()
+if pid == 0:
+    print('11111')
+    print('我是子进程: %s and 父进程ID是 %s.' % (os.getpid(), os.getppid()))
+    print('22222')
+else:
+    print('333333')
+    print('父进程ID是: %s 创建了子进程 (%s).' % (os.getpid(), pid))
+    print('44444')
 
-if __name__=='__main__':
-    print('Parent process %s.' % os.getpid())
-    p = Process(target=run_proc, args=('test',))
-    print('Child process will start.')
-    p.start()
-    p.join()
-    print('Child process end.')
+```
+输出结果:
+
+```
+进程 (709) 开启
+333333
+父进程ID是: 709 创建了子进程 (710).
+44444
+11111
+我是子进程: 710 and 父进程ID是 709.
+22222
 
 ```
 
-```
 
-Parent process 928.
-Process will start.
-Run child process test (929)...
-Process end.
-
-```
 
 ###Pool
 
