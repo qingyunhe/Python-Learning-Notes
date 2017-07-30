@@ -87,7 +87,7 @@ if __name__=='__main__':
     print('子进程即将启动')
     # 调用start()函数启动子进程
     p.start()
-    #join()方法用于等待子进程结束后再继续往下运行,通常用于进程间的同步
+    #join()方法用于等待子进程结束后,再继续往下运行,通常用于进程间的同步
     p.join()
     print('子进程关闭')
 
@@ -107,12 +107,47 @@ if __name__=='__main__':
 
 **3 用进程池Pool批量创建子进程**
 
-如果要启动大量的子进程，可以用进程池的方式批量创建子进程：
+如果要启动大量的子进程,可以用进程池批量创建子进程.
 
-：
+```
+from multiprocessing import Pool
+import os, time, random
 
+def long_time_task(name):
+    print('任务 task %s 由子进程 %s 执行' % (name, os.getpid()))
 
+if __name__=='__main__':
+    print('当前进程/父进程的ID是 %s' % os.getpid())
+    p = Pool()
+    for i in range(10):
+        p.apply_async(long_time_task, args=(i,))
+    print('等待所有子进程中的任务执行完毕')
+    p.close()
+    p.join()
+    print('所有子进程中的任务执行完毕')
 
+```
+
+输出结果:
+
+```
+当前进程/父进程的ID是 1178
+等待所有子进程中的任务执行完毕
+任务 task 0 由子进程 1179 执行
+任务 task 1 由子进程 1180 执行
+任务 task 2 由子进程 1181 执行
+任务 task 4 由子进程 1179 执行
+任务 task 5 由子进程 1180 执行
+任务 task 3 由子进程 1182 执行
+任务 task 6 由子进程 1179 执行
+任务 task 7 由子进程 1180 执行
+任务 task 8 由子进程 1181 执行
+任务 task 9 由子进程 1179 执行
+所有子进程中的任务执行完毕
+
+```
+
+以上结果可以发现
 
 
 
