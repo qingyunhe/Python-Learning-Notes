@@ -139,6 +139,105 @@ print(s1)
 ```
 ###字符串内建函数
 
+1 capitalize() 将字符串的第一个字母变成大写,其他字母变小写.
+
+```
+str = 'aBHUcdeHf'
+print(str.capitalize())
+
+```
+输出结果:
+
+```
+Abhucdehf
+
+```
+2 isspace() 判断字符串是否只由空白字符组成.
+
+```
+str1 = 'JamesBond'
+str2 = ''
+str3 = '      '
+print(str1.isspace())
+print(len(str1))
+print(str2.isspace())
+print(len(str2))
+print(str3.isspace())
+print(len(str3))
+
+```
+输出结果:
+
+```
+False
+9
+False
+0
+True
+6
+
+```
+
+3 join() 以指定字符串作为分隔符,将sequence中所有的元素拼接为一个新的字符串.语法格式 `str.join(sequence)` 其中sequence是要拼接的序列.
+
+```
+str1 = ','
+str2 = 'Python'
+print(str1.join(str2))
+
+```
+输出结果:
+
+```
+P,y,t,h,o,n
+
+```
+
+```
+str1 = ' '
+str2 = ['aa', 'bb', 'cc']
+print(str1.join(str2))
+
+```
+输出结果:
+
+```
+aa bb cc
+
+```
+4 len() 方法返回对象(字符串,列表,元组等)的长度
+
+5 strip() 方法用于去除字符串头尾指定的字符.
+
+```
+str = '*****aaa,,,,ccccc*****'
+print (str.strip('*'))
+
+```
+输出结果:
+
+```
+aaa,,,,ccccc
+
+```
+如果不指定字符串头尾要去除的字符,默认去除字符串头尾的空格.
+
+```
+str = '  aa和   dd 一起吃榴莲    '
+print (str.strip())
+
+```
+输出结果:
+
+```
+aa和   dd 一起吃榴莲
+
+```
+
+
+
+
+
 
 
 
