@@ -4,15 +4,15 @@
 
 欢迎各位朋友与我进行深入浅出的交流 <developerqingyun@gmail.com>
 
-###创建字符串
+###字符串的创建
 
 ```
 name = 'qingyun'
 
 ```
-###访问字符串中的值
+###字符串的截取
 
-Python不支持单字符类型,单字符在Python中作为一个字符串使用.Python使用切片访问子字符串中的值.
+Python中使用切片截取字符串.
 
 ```
 name = 'qingyun'
@@ -26,16 +26,81 @@ print(str)
 ngyu
 
 ```
+###字符串的拼接
 
-###字符串的修改
+和Java一样,Python字符串之间的拼接使用 `+`
 
-字符串是不可变对象.
+```
+s1 = "hello"
+s2 = "Python"
+print (s1+ " " + s2)   
+
+```
+
+###通过索引获取字符串中字符
+
+```
+name = 'qingyun'
+str = name[3]
+print(str)
+
+```
+输出结果:
+
+```
+g
+
+```
+
+###字符串的成员运算符 in 和 not in
+
+in 如果字符串中包含给定的字符返回True.
+
+not in 如果字符串中不包含给定的字符返回True.
+
+```
+str = 'Python'
+b1 = 'y' in str
+b2 = 'yy' in str
+b3 = 'yy' not in str
+print(b1)
+print(b2)
+print(b3)
+
+```
+输出结果:
+
+```
+True
+False
+True
+
+```
+
+###格式字符串
+
+```
+name = '李雷'
+age = 6
+print('%s的年龄是%d' % (name, age))
+
+```
+输出结果:
+
+```
+李雷的年龄是6
+
+```
+Python字符串格式化符号表:
+
 
 
 
 
 
 ###转义字符
+
+转义字符 `\` 后面的一个字符不具有特殊含义,即是普通的字符串.
 
 ```
 s1 = 'let's go'
@@ -49,18 +114,12 @@ s1 = 'let\'s go'
 print(s1)
 
 ```
+###字符串运算符
 
-转义字符 `\` 后面的一个字符不具有特殊含义,即是普通的字符串.
 
 
-字符串的拼接:
 
-```
-s1 = "hello"
-s2 = "Python"
-print (s1+ " " + s2)   
 
-```
 
 
 

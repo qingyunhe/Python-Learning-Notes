@@ -82,7 +82,7 @@ print(s)
 aa, bb, cc, dd, ee, ff
 
 ```
-使用join()方法拼接字符串:
+使用join()方法拼接多个字符串:
 
 ```
 names = ['aa', 'bb', 'cc', 'dd', 'ee', 'ff']
@@ -93,6 +93,19 @@ print(','.join(names))
 
 ```
 aa,bb,cc,dd,ee,ff
+
+```
+如果对一个字符串调用join()方法:
+
+```
+name = 'qingyun'
+print(','.join(name))
+
+```
+输出结果:
+
+```
+q,i,n,g,y,u,n
 
 ```
 
