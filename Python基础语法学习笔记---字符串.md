@@ -93,6 +93,13 @@ print('%s的年龄是%d' % (name, age))
 ```
 Python字符串格式化符号表:
 
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/01Python字符串格式化符号.png?raw=true
+
+格式化操作符辅助指令:
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/02格式化操作符辅助指令.png?raw=true
+
+
 
 
 
