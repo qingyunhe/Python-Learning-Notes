@@ -2,7 +2,7 @@
 
 **人生苦短,快用Python.**
 
-本文是Python语法学习的第4篇笔记,学习过程中参考了[廖雪峰的Python教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)和[菜鸟教程Python3篇](https://www.runoob.com/python3/python3-tutorial.html),在此一并表示感谢.
+本文是Python语法学习的第4篇笔记,我在学习过程中参考了[廖雪峰的Python教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)和[菜鸟教程Python3篇](https://www.runoob.com/python3/python3-tutorial.html),在此一并表示感谢.
 
 欢迎各位朋友与我进行深入浅出的交流 <developerqingyun@gmail.com>
 
@@ -42,7 +42,7 @@ l1[8]		// 报错`IndexError: list index out of range`
 
 除了计算索引位置外,还可以用 -1 做索引,直接获取最后一个元素.以此类推,可以使用 -2 做索引获取倒数第2个元素,可以使用 -3 做索引获取倒数第3个元素.
 
-4 使用`append()`函数向list中追加元素到末尾
+4 使用`append()`函数向list中添加元素到末尾,**开发中常用**
 
 list是有序的集合,所以使用使用`append()`函数向list中追加元素时,只能追加到list的末尾.
 
@@ -102,7 +102,7 @@ li
 l1 = [1, "OC" ,2 , 3 ,['Michael', 'Jack']]
 
 ```
-9 取出list中的list中的元素
+9 取出list中的list类型元素中的元素
 
 ```
 l1 = [1, 2, 3,"JAVA" ,['Michael', 'Jack'] ,True]

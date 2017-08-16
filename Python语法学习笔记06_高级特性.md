@@ -30,9 +30,9 @@ l1[0:3]表示从索引0开始取,直到索引3为止,但不包括索引3.即索�
 
 取出`l1`中索引为2和3的元素 `l2 = l1[2 : 4]`
 
-取出`l1`中倒数第一个元素 `l2 = l1[-1]`,倒数第一个元素的索引是-1.`l2 = l1[-3 : -1]`输出结果是`['ee', 'ff']`.
+取出`l1`中倒数第一个元素(也即最后一个元素) `l2 = l1[-1]`,倒数第一个元素的索引是-1.`l2 = l1[-3 : -1]`输出结果是`['ee', 'ff']`.
 
-创建一个0-99的数列:
+创建一个0-99数字列表:
 
 ```
 l = list(range(100))
@@ -70,7 +70,7 @@ str1[::2]			// 输出结果 'ACEG'
 
 什么是迭代?
 
-给定一个list,tuple,set,dict,可以通过for循环来遍历,这种遍历称为迭代(Iteration),例如:
+给定一个str,list,tuple,set,dict,可以通过for循环来遍历,这种遍历称为迭代(Iteration),例如:
 
 ```
 d = {'a': 1, 'b': 2, 'c': 3}
@@ -274,7 +274,7 @@ isinstance([], Iterable)		#True
 
 生成器不但可以使用`for in`迭代,还可以不断调用`next()`函数返回下一个值.返回最后一下值后,如果继续调用`next()`函数,就会抛出`StopIteration`异常.**可以调用`next()`函数,并不断返回下一个值的对象称为迭代器Iterator.**
 
-可迭代对象不一定是迭代器,例如:
+可迭代对象不一定是迭代器,list、dict、str等不能调用`next()`函数,例如:
 
 ```
 from collections import Iterable
@@ -285,7 +285,7 @@ isinstance([], Iterator)		#False
 
 ```
 
-生成器都是Iterator对象,但list、dict、str虽然是Iterable,却不是Iterator.
+生成器是Iterator,但list、dict、str等虽然是Iterable,却不是Iterator.
 
 把list、dict、str等由Iterable变成Iterator可以使用iter()函数,例如:
 

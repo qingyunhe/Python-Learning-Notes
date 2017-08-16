@@ -222,7 +222,7 @@ fact_iter(1, 120)
 
 ---
 
-###高阶函数
+###高阶函数的概念
 
 如果一个函数接收另一个函数作为参数,这种函数就称为高阶函数.例如:
 
@@ -243,11 +243,218 @@ return 11
 
 ```
 
+函数式编程的一个特点就是允许把函数的函数名称作为参数传递给另一个函数,还允许返回一个函数的函数名称
+
 ---
 
-###map()函数和reduce()函数
+###map()函数
 
-map()函数和reduce()函数都是Python的内建函数.
+map()函数是Python的内建函数.
+
+map()函数接收两个参数:
+
+第1个参数是某个函数的函数名称,第2个参数是Iterable(即可遍历对象).
+
+map()函数会将传入的函数名称依次作用到Iterable中的每个元素,并把作用结果作为新的Iterator(即迭代器)返回.例如定义一个函数f = x的平方,要将这个函数作用`list = [1, 2, 3, 4, 5, 6, 7, 8, 9]`上，就可以用map()函数实现.
+
+```
+def f(x):
+    return x * x
+
+l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+m = map(f, l)
+print(type(m))		# 输出结果 <class 'map'>
+
+l = list(m)
+print(l)			# [1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(type(l))		# 输出结果 <class 'list'>
+
+```
+
+map()函数返回值是一个Iterator对象,Iterator是惰性序列,因此需要通过list()函数把整个序列计算出来并返回一个list.
+
+再例如把`list = [1, 2, 3, 4, 5, 6, 7, 8, 9]`中的每一个元素转为字符串:
+
+```
+l1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+m = map(str, l1)
+l2 = list(m)
+print(l2)			# 输出结果['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+```
+
+小结:map()函数作为高阶函数,底层实际是抽象了第1个传入的函数名称参数代表的函数的运算规则,并省去了遍历第2个传入的Iterator参数的遍历过程.
+
+###reduce()函数
+
+reduce()函数是Python的内建函数.
+
+reduce()函数接收两个参数:
+
+第1个参数是某个函数的函数名称,**且该函数必须只能有两个参数**
+
+第2个参数是Iterable(即可遍历对象),Iterable中至少有两个对象.
+
+reduce()函数会遍历第2个参数Iterable中的所有元素,然后将索引为0的元素和索引为1的元素传给第1个参数所代表的函数,然后该函数返回的结果和Iterable中索引为3的元素一起作为参数传递给第1个参数代表的函数;然后该函数返回的结果和Iterable中索引为4的元素一起作为参数传递给第1个参数代表的函数...一直到Iterable中最后一个元素作为参数传递给了第1个参数代表的函数位置.例如 `reduce(f, [1, 2, 3, 4]) = f(f(f(1, 2), 3), 4)`
+
+```
+from functools import reduce
+
+def add(x, y):
+     return x + y
+
+m = reduce(add, range(10))
+print(type(m))		# 输出结果<class 'int'>
+print(m)			# 输出结果45
+
+```
+
+上例中的求和运算可以直接用Python的内建函数sum()函数,`sum(range(10))`.
+
+---
+
+###filter()函数
+
+Python内建的filter()函数用于按照一定的规则过滤/筛选序列中的元素.
+
+filter()函数的2个参数:
+
+第1个参数是某个函数的函数名称
+
+第2个参数是一个序列.
+
+filter()函数会把传入的函数依次作用于序列中的每个元素,然后根据第1个参数代表的函数返回值是True还是False决定保留还是丢弃该元素,如果返回值是False,就丢弃该元素.
+
+```
+def is_odd(n):
+    return n % 2 == 1
+
+l = list(filter(is_odd, range(10)))
+print(l)		# 输出结果 [1, 3, 5, 7, 9]
+
+```
+
+filter()函数返回值是一个Iterator,也即是一个惰性序列,所以直接print返回值不能输出返回值中的元素,可以使用list()函数获得所有结果并返回一个list.
+
+使用filter()函数输出1000以内的所有素数.
+
+---
+
+###sorted()函数
+
+排序是常用算法,无论冒泡排序还是快速排序,排序的核心是比较两个元素之间的大小.如果元素的数据类型是数字,可以直接比较;如果元素的数据类型是字符串或dict,直接比较数学上的大小是没有意义的.因此,比较的过程必须通过函数抽象出来.
+
+1 sorted()函数接收一个序列,对序列中的元素进行排序.
+
+例如sorted()函数接收一个list,对list中的参数进行排序
+
+```
+l = sorted([2, 5, -6, 9, -10])
+print(type(l))		# 输出结果 <class 'list'>
+print(l)			# 输出结果 [-10, -6, 2, 5, 9]
+
+```
+
+例如sorted()函数接收一个tuple,对tuple中的参数进行排序
+
+```
+t = (2, 5, -6, 9, -10)
+l = sorted(t)
+print(type(l))		# 输出结果 <class 'list'>
+print(l)			# 输出结果 [-10, -6, 2, 5, 9]
+
+```
+
+注意:传给sorted()函数的序列中的所有元素的数据类型必须是相同的,否则会报错`TypeError`
+
+```
+l = sorted([2, 5, -6, 9, -10, 'aa', 'ee'])
+print(type(l))
+print(l)		# 报错TypeError: '<' not supported between instances of 'str' and 'int'
+
+```
+
+2 sorted()函数接收一个`key`函数来实现自定义的排序,例如按绝对值大小排序:
+
+```
+l = sorted([36, 5, -12, 9, -21], key = abs)
+print(l)		# 输出结果 [5, 9, -12, -21, 36]
+
+```
+key参数指定的函数将作用于序列参数中每一个元素上,并对key参数代表的函数的返回结果进行排序.
+
+3 sorted()函数对字符串进行排序.
+
+```
+l = sorted(['bob', 'about', 'Zoo', 'Credit'])
+print(type(l))
+print(l)
+
+```
+输出结果:
+
+```
+<class 'list'>
+['Credit', 'Zoo', 'about', 'bob']
+
+```
+
+默认情况下,对字符串排序时会按照ASCII的大小进行.由于'Z' < 'a',所以大写字母Z会排在小写字母a的前面.
+
+忽略大小写比较字符串:先把字符串都变成大写(或者都变成小写),再进行排序.例如:
+
+```
+l = sorted(['bob', 'about', 'Zoo', 'Credit'], key = str.lower)
+print(type(l))
+print(l)
+
+```
+输出结果:
+
+```
+<class 'list'>
+['about', 'bob', 'Credit', 'Zoo']
+
+```
+
+反向排序:可以传入第三个参数reverse=True,就会从大往小进行排序.例如
+
+```
+l = sorted([36, 5, -12, 9, -21], key = abs, reverse= True)
+print(l)
+
+```
+输出结果:
+
+```
+[36, -21, -12, 9, 5]
+
+```
+
+例如忽略大小写同时对字符串进行反向排序:
+
+```
+l = sorted(['bob', 'about', 'Zoo', 'Credit'], key = str.lower, reverse = True)
+print(type(l))
+print(l)
+
+```
+输出结果:
+
+```
+<class 'list'>
+['Zoo', 'Credit', 'bob', 'about']
+
+```
+
+
+
+---
+
+###匿名函数
+
+
 
 
 
