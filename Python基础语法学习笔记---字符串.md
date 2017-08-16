@@ -99,12 +99,28 @@ Python字符串格式化符号表:
 
 ![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/02格式化操作符辅助指令.png?raw=true
 
+###字符串的三引号
 
+Python的字符串三引号允许一个字符串跨多行,字符串中可以包含换行符,制表符及其它特殊字符.三引号多用于HTML或者SQL中.例如:
 
+```
+errHTML = '''
+<HTML><HEAD><TITLE>
+Friends CGI Demo</TITLE></HEAD>
+<BODY><H3>ERROR</H3>
+<B>%s</B><P>
+<FORM><INPUT TYPE=button VALUE=Back
+ONCLICK="window.history.back()"></FORM>
+</BODY></HTML>
+'''
+cursor.execute('''
+CREATE TABLE users (  
+login VARCHAR(8), 
+uid INTEGER,
+prid INTEGER)
+''')
 
-
-
-
+```
 ###转义字符
 
 转义字符 `\` 后面的一个字符不具有特殊含义,即是普通的字符串.
@@ -121,7 +137,7 @@ s1 = 'let\'s go'
 print(s1)
 
 ```
-###字符串运算符
+###字符串内建函数
 
 
 
