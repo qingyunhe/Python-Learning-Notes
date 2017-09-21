@@ -118,6 +118,11 @@ print('{}的年龄是{}'.format(name, age))ß
 
 ```
 
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/format函数中文对齐.png?raw=true)
+
+
+
+
 ###字符串的三引号
 
 Python的字符串三引号允许一个字符串跨多行,字符串中可以包含换行符,制表符及其它特殊字符.三引号多用于HTML或者SQL中.例如:
