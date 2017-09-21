@@ -79,6 +79,8 @@ True
 
 ###格式字符串
 
+1 使用格式化符号
+
 ```
 name = '李雷'
 age = 6
@@ -98,6 +100,23 @@ Python字符串格式化符号表:
 格式化操作符辅助指令:
 
 ![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/02格式化操作符辅助指令.png?raw=true
+
+2 使用format()内建函数
+
+```
+name = '李雷'
+age = 6
+# print('%s的年龄是%d' % (name, age))
+print('{}的年龄是{}'.format(name, age))ß
+
+```
+
+输出结果:
+
+```
+李雷的年龄是6
+
+```
 
 ###字符串的三引号
 

@@ -20,7 +20,7 @@ l1 = [1, 2, 3,"JAVA" ,['Michael', 'Jack'] ,True]
 1 len()函数获取list中元素的个数,也即获取一个list的长度.
 
 ```
-len(l1)  		// 输出结果是 6 
+len(l1)  		# 输出结果是 6 
 
 ```
 
@@ -28,11 +28,11 @@ len(l1)  		// 输出结果是 6
 
 2 使用索引访问list中的元素,索引从0开始,索引越界时会报错`IndexError: list index out of range`
 
-```
 
-l1[0]		// 输出结果是 1
-l1[4]		// 输出结果是 ['Michael', 'Jack']
-l1[8]		// 报错`IndexError: list index out of range`
+```
+l1[0]		# 输出结果是 1
+l1[4]		# 输出结果是 ['Michael', 'Jack']
+l1[8]		# 报错`IndexError: list index out of range`
 
 ```
 
@@ -106,7 +106,7 @@ l1 = [1, "OC" ,2 , 3 ,['Michael', 'Jack']]
 
 ```
 l1 = [1, 2, 3,"JAVA" ,['Michael', 'Jack'] ,True]
-l1[4][1]  		// 输出结果 "Jack"
+l1[4][1]  		# 输出结果 "Jack"
 
 ```
 
@@ -115,7 +115,7 @@ l1[4][1]  		// 输出结果 "Jack"
 ```
 a = ['c', 'b', 'a']
 a.sort()
-a		// 输出结果 ['a', 'b', 'c']
+a		# 输出结果 ['a', 'b', 'c']
 
 ```
 
@@ -153,7 +153,7 @@ t = tuple([1,2,"aa","bb",True])
 
 ```
 t = tuple(1,2,"a","d",True)` 	 
-// 报错:tuple() takes at most 1 argument (5 given) 
+# 报错:tuple() takes at most 1 argument (5 given) 
 
 ```
 
@@ -194,21 +194,21 @@ if "dd" in d:
 ```
 d = {'aa': 111, 'bb': 222, 'cc': 333}
 e = d.get("dd")
-print(e)		// 输出 None
+print(e)		# 输出 None
 
 ```
 
 ```
 d = {'aa': 111, 'bb': 222, 'cc': 333}
 e = d.get("dd","666")
-print(e)		// 输出 666
+print(e)		# 输出 666
 
 ```
 
 ```
 d = {'aa': 111, 'bb': 222, 'cc': 333}
 e = d.get("cc","666")
-print(e)		// 输出 333
+print(e)		# 输出 333
 
 ```
 
@@ -234,7 +234,7 @@ print(d)
 ```
 
 d = {'aa': 111, 'bb': 222, 'cc': 333}
-e = d.pop("dd")		// 报异常`KeyError`
+e = d.pop("dd")		# 报异常`KeyError`
 print(d)
 
 ```
@@ -267,8 +267,8 @@ set是Python内置的集合数据类型.set用于存储一组key,但不存储val
 
 ```
 s = set([1,8,3,"qingyun",5])
-print(type(s))		// 输出结果 <class 'set'>
-print(s)		// 输出结果 {1, 3, 5, 8, 'qingyun'}
+print(type(s))		# 输出结果 <class 'set'>
+print(s)		# 输出结果 {1, 3, 5, 8, 'qingyun'}
 
 ```
 
@@ -278,7 +278,7 @@ print(s)		// 输出结果 {1, 3, 5, 8, 'qingyun'}
 
 ```
 s = set([1,8,3,8,6,8,3,5,7])
-print(s)		// 输出结果 {1, 3, 5, 6, 7, 8}
+print(s)		# 输出结果 {1, 3, 5, 6, 7, 8}
 
 ```
 3 通过add(key)方法向set中添加元素,可以重复添加但不会有效果.
@@ -288,15 +288,15 @@ print(s)		// 输出结果 {1, 3, 5, 6, 7, 8}
 5 set可以理解为数学意义上无序和无重复元素的集合,两个set可以做数学意义上的交集,并集操作.
 
 ```
-s1 = set([1,2,3])s2 = set([3,4,5])s1 & s2 		// 输出结果 {3}
-s1 | s2			// 输出结果 {1, 2, 3, 4, 5}```
+s1 = set([1,2,3])s2 = set([3,4,5])s1 & s2 		# 输出结果 {3}
+s1 | s2			# 输出结果 {1, 2, 3, 4, 5}```
 6 set是用于存储无重复元素的集合(即使其中有重复的元素,也会自动去重),所以set中不能存储可变对象,因为无法判断可变对象是否与set集合中的其它元素相同.
 
 ```
 l1 = ['aa','bb']
 s = set([1,3,5,l1])
 print(type(s))
-print(s)		// 报错 TypeError: unhashable type: 'list'
+print(s)		# 报错 TypeError: unhashable type: 'list'
 
 ```
 
@@ -311,7 +311,7 @@ print(s)		// 报错 TypeError: unhashable type: 'list'
 t = ('a', 'b', ['A', 'B'])
 t[2][0] = 'X'
 t[2][1] = 'Y'
-t				// 输出结果 ('a', 'b', ['X', 'Y'])
+t				# 输出结果 ('a', 'b', ['X', 'Y'])
 
 ```
 
@@ -343,8 +343,8 @@ t[2][1] = 'Y'
 ```
 a = 'abc'
 b = a.replace('a', 'A')
-print(b)		// 输出结果 Abc
-print(a)		// 输出结果 abc
+print(b)		# 输出结果 Abc
+print(a)		# 输出结果 abc
 
 ```
 
@@ -355,7 +355,7 @@ a是变量,a中存储的是字符串'abc'在内存的内存地址.`a.replace('a'
 ```
 t1 = (1, 2, 3)
 dict1 = {'aa' : 111 ,'bb' : 22 ,t1 : 33 }
-print(dict1)		// 输出结果{'aa': 111, 'bb': 22, (1, 2, 3): 33}
+print(dict1)		# 输出结果{'aa': 111, 'bb': 22, (1, 2, 3): 33}
 
 ```
 
@@ -363,7 +363,7 @@ print(dict1)		// 输出结果{'aa': 111, 'bb': 22, (1, 2, 3): 33}
 
 t2 = (1, [2, 3])
 dict2 = {'aa' : 111 ,'bb' : 22 ,t2 : 33 }
-print(dict2)		//报错TypeError: unhashable type: 'list'
+print(dict2)		# 报错TypeError: unhashable type: 'list'
 
 ```
 
