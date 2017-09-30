@@ -26,6 +26,22 @@ print(str)
 ngyu
 
 ```
+###字符串的分割
+
+```
+s = 'ab,cde,fgh,ijk'
+list = s.split(',')
+print(list[2])
+print(s.split(','))
+
+```
+输出结果:
+
+```
+fgh
+['ab', 'cde', 'fgh', 'ijk']
+
+```
 ###字符串的拼接
 
 和Java一样,Python字符串之间的拼接使用 `+`
@@ -118,9 +134,22 @@ print('{}的年龄是{}'.format(name, age))ß
 
 ```
 
-![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/format函数中文对齐.png?raw=true)
+**使用format()内建函数进行格式化输出时,中文对齐问题**
+
+![Mou icon](https://github.com/qingyunhe/Python-Learning-Notes/blob/master/images/format函数中文对齐.png?raw=true
+
+当中文字符宽度不够时,	会采用英文字符填充,中文字符和英文字符所占有的宽度不同,就会出现中文对不齐的问题.
+
+解决方法:在中文字符宽度不够的时候,填充中文状态下的空格字符,而不填充英文状态下的空格字符.使用`chr(12288)`表示中文空格`
 
 
+
+
+
+```
+print("{:^10}\t{:^6}\t{:^10}".format("排名", "学校名称", "总分"))
+
+```
 
 
 ###字符串的三引号
